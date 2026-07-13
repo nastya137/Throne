@@ -2,6 +2,8 @@
 
 #include "include/ui/mainwindow_interface.h"
 
+#include "include/ui/group/dialog_country_filter.h"
+
 #include <QClipboard>
 #include <QHash>
 #include <QStringListModel>
@@ -171,6 +173,16 @@ DialogEditGroup::DialogEditGroup(const std::shared_ptr<Configs::Group> &ent, QWi
         }
         QApplication::clipboard()->setText(links.join("\n"));
         MessageBoxInfo(software_name, tr("Copied"));
+    });
+    connect(ui->country_filter_button, &QPushButton::clicked,
+    this, [this] {
+
+        DialogCountryFilter dialog(this);
+        if(dialog.exec() == QDialog::Accepted)
+        {
+            auto countries = dialog.selectedCountries();
+            qDebug() << countries;
+        }
     });
 
     ui->name->setFocus();

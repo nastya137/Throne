@@ -35,6 +35,51 @@
       <item row="3" column="1">
        <widget class="QComboBox" name="landing_proxy"/>
       </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="front_proxy_l">
+        <property name="text">
+         <string>Front Proxy</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QComboBox" name="front_proxy"/>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="name"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Type</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QCheckBox" name="auto_clear_unavailable">
+        <property name="text">
+         <string>Auto Clear Unavailable Profiles</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="landing_proxy_l">
+        <property name="text">
+         <string>Landing Proxy</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </widget>
+      </item>
       <item row="1" column="1">
        <widget class="QComboBox" name="type">
         <item>
@@ -49,48 +94,17 @@
         </item>
        </widget>
       </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Name</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="landing_proxy_l">
-        <property name="text">
-         <string>Landing Proxy</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QComboBox" name="front_proxy"/>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Type</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="front_proxy_l">
-        <property name="text">
-         <string>Front Proxy</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="name"/>
-      </item>
       <item row="4" column="1">
-       <widget class="QCheckBox" name="auto_clear_unavailable">
+       <widget class="QPushButton" name="country_filter_button">
         <property name="text">
-         <string>Auto Clear Unavailable Profiles</string>
+         <string>Configure...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Country filter</string>
         </property>
        </widget>
       </item>
@@ -103,6 +117,8 @@
      <zorder>landing_proxy_l</zorder>
      <zorder>name</zorder>
      <zorder>auto_clear_unavailable</zorder>
+     <zorder>country_filter_button</zorder>
+     <zorder>label_3</zorder>
     </widget>
    </item>
    <item>
@@ -157,7 +173,7 @@
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
-      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
+      <set>QDialogButtonBox::NoButton</set>
      </property>
     </widget>
    </item>
