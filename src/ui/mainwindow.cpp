@@ -1867,6 +1867,18 @@ QList<int> MainWindow::filterProfilesList(const QList<int>& profileIDs)
             MW_show_log("Null profile, maybe data is corrupted");
             continue;
         }
+
+        auto countryMatches = [&]() {
+            if (countryFilterString.isEmpty())
+                return true;
+
+            if (!profile->test_country.isEmpty())
+                return profile->test_country.contains(countryFilterString, Qt::CaseInsensitive);
+
+            return profile->outbound &&
+                profile->outbound->name.contains(countryFilterString, Qt::CaseInsensitive);
+        };
+
         auto portMatches = [&]() {
             QString val = addressFilterString.mid(5);
             if (!val.contains(':')) return val.isEmpty() ? false : profile->outbound->server_port == val.toInt();
@@ -1878,7 +1890,7 @@ QList<int> MainWindow::filterProfilesList(const QList<int>& profileIDs)
         if ((addressFilterString.isEmpty() || (addressFilterString.startsWith("port=") ? portMatches() : profile->outbound->server.contains(addressFilterString, Qt::CaseInsensitive)))
             && (nameFilterString.isEmpty() || profile->outbound->name.contains(nameFilterString, Qt::CaseInsensitive))
             && (typeFilterString.isEmpty() || profile->type.contains(typeFilterString, Qt::CaseInsensitive))
-            && (countryFilterString.isEmpty() || profile->test_country.contains(countryFilterString, Qt::CaseInsensitive)))
+            //&& (countryFilterString.isEmpty() || profile->test_country.contains(countryFilterString, Qt::CaseInsensitive)))
             res.append(profile->id);
     }
     return res;
