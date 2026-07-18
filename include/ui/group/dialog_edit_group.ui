@@ -173,7 +173,7 @@
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
-      <set>QDialogButtonBox::NoButton</set>
+      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
      </property>
     </widget>
    </item>
@@ -189,6 +189,7 @@
  <tabstops>
   <tabstop>name</tabstop>
   <tabstop>type</tabstop>
+  <tabstop>country_filter_button</tabstop>
   <tabstop>url</tabstop>
   <tabstop>skip_auto_update</tabstop>
   <tabstop>copy_links</tabstop>

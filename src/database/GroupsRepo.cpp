@@ -30,6 +30,7 @@ namespace Configs {
                 landing_proxy_id INTEGER NOT NULL DEFAULT -1,
                 column_width_json TEXT,
                 profiles_json TEXT NOT NULL DEFAULT '[]',
+                allowed_countries_json TEXT NOT NULL DEFAULT '[]',
                 scroll_last_profile INTEGER NOT NULL DEFAULT -1,
                 auto_clear_unavailable INTEGER NOT NULL DEFAULT 0,
                 test_sort_by INTEGER NOT NULL DEFAULT 0,
@@ -68,7 +69,7 @@ namespace Configs {
         json["test_sort_by"] = static_cast<int>(group->test_sort_by);
         json["traffic_sort_by"] = static_cast<int>(group->traffic_sort_by);
         json["test_items_to_show"] = static_cast<int>(group->test_items_to_show);
-        
+        json["allowed_countries"] = QJsonArray::fromStringList(group->allowed_countries);
         return json;
     }
 
@@ -87,6 +88,10 @@ namespace Configs {
         group->landing_proxy_id = json["landing_proxy_id"].toInt();
         group->column_width = QJsonArray2QListInt(json["column_width"].toArray());
         group->profiles = QJsonArray2QListInt(json["profiles"].toArray());
+        QJsonArray countriesArray = json["allowed_countries"].toArray();
+        for (const auto& country : countriesArray) {
+            group->allowed_countries.append(country.toString());
+        }
         group->scroll_last_profile = json["scroll_last_profile"].toInt(-1);
         group->test_sort_by = static_cast<testBy>(json["test_sort_by"].toInt(0));
         group->traffic_sort_by = static_cast<trafficBy>(json["traffic_sort_by"].toInt(0));
@@ -99,7 +104,15 @@ namespace Configs {
         // Serialize lists to JSON strings
         QJsonArray columnWidthArray = QListInt2QJsonArray(group->column_width);
         QJsonArray profilesArray = QListInt2QJsonArray(group->profiles);
-        
+
+        QJsonArray countriesArray = QJsonArray::fromStringList(group->allowed_countries);
+        QJsonDocument countriesDoc(countriesArray);
+
+        QString countriesJson =
+            QString::fromUtf8(
+                countriesDoc.toJson(QJsonDocument::Compact)
+            );
+
         QJsonDocument columnWidthDoc(columnWidthArray);
         QJsonDocument profilesDoc(profilesArray);
         
@@ -116,7 +129,7 @@ namespace Configs {
                 UPDATE groups 
                 SET archive = ?, skip_auto_update = ?, auto_clear_unavailable = ?, name = ?, url = ?, info = ?,
                     sub_last_update = ?, front_proxy_id = ?, landing_proxy_id = ?,
-                    column_width_json = ?, profiles_json = ?, scroll_last_profile = ?, test_sort_by = ?, traffic_sort_by = ?, test_items_to_show = ?,
+                    column_width_json = ?, profiles_json = ?, allowed_countries_json = ?, scroll_last_profile = ?, test_sort_by = ?, traffic_sort_by = ?, test_items_to_show = ?,
                     updated_at = strftime('%s', 'now')
                 WHERE id = ?
             )",
@@ -131,6 +144,7 @@ namespace Configs {
                 group->landing_proxy_id,
                 columnWidthJson.toStdString(),
                 profilesJson.toStdString(),
+                countriesJson.toStdString(),
                 group->scroll_last_profile,
                 static_cast<int>(group->test_sort_by),
                 static_cast<int>(group->traffic_sort_by),
@@ -143,8 +157,8 @@ namespace Configs {
                 INSERT INTO groups 
                 (id, archive, skip_auto_update, auto_clear_unavailable, name, url, info, sub_last_update,
                  front_proxy_id, landing_proxy_id,
-                 column_width_json, profiles_json, scroll_last_profile, test_sort_by, traffic_sort_by, test_items_to_show)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 column_width_json, profiles_json, allowed_countries_json, scroll_last_profile, test_sort_by, traffic_sort_by, test_items_to_show)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             )",
                 id,
                 group->archive ? 1 : 0,
@@ -158,6 +172,7 @@ namespace Configs {
                 group->landing_proxy_id,
                 columnWidthJson.toStdString(),
                 profilesJson.toStdString(),
+                countriesJson.toStdString(),
                 group->scroll_last_profile,
                 static_cast<int>(group->test_sort_by),
                 static_cast<int>(group->traffic_sort_by),
@@ -170,7 +185,7 @@ namespace Configs {
         auto query = db.query(R"(
             SELECT id, archive, skip_auto_update, auto_clear_unavailable, name, url, info, sub_last_update,
                    front_proxy_id, landing_proxy_id,
-                   column_width_json, profiles_json, scroll_last_profile, test_sort_by, traffic_sort_by, test_items_to_show
+                   column_width_json, profiles_json, allowed_countries_json, scroll_last_profile, test_sort_by, traffic_sort_by, test_items_to_show
             FROM groups WHERE id = ?
         )", id);
         if (!query || !query->executeStep()) {
@@ -206,11 +221,22 @@ namespace Configs {
             }
         }
 
-        json["scroll_last_profile"] = query->getColumn(12).getInt();
-        json["test_sort_by"] = query->getColumn(13).getInt();
-        json["traffic_sort_by"] = query->getColumn(14).getInt();
-        json["test_items_to_show"] = query->getColumn(15).getInt();
-        
+        QString countriesJsonStr = QString::fromStdString(query->getColumn(12).getText());
+
+        if (!countriesJsonStr.isEmpty()) {
+            QJsonDocument countriesDoc =
+                QJsonDocument::fromJson(countriesJsonStr.toUtf8());
+
+            if (!countriesDoc.isNull() && countriesDoc.isArray()) {
+                json["allowed_countries"] = countriesDoc.array();
+            }
+        }
+
+        json["scroll_last_profile"] = query->getColumn(13).getInt();
+        json["test_sort_by"] = query->getColumn(14).getInt();
+        json["traffic_sort_by"] = query->getColumn(15).getInt();
+        json["test_items_to_show"] = query->getColumn(16).getInt();
+                
         return groupFromJson(json);
     }
 

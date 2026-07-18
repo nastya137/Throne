@@ -62,6 +62,7 @@ void DialogCountryFilter::loadCountries()
         ui->countries_layout->addWidget(box);
 
         countryBoxes.append(box);
+        countryChecks[countryName] = box;
     }
 }
 

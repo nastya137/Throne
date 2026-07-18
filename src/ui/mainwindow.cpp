@@ -1857,9 +1857,20 @@ void MainWindow::updateLogFilterFields() {
 
 QList<int> MainWindow::filterProfilesList(const QList<int>& profileIDs)
 {
-    if (addressFilterString.isEmpty() && nameFilterString.isEmpty() && typeFilterString.isEmpty() && countryFilterString.isEmpty()) return profileIDs;
+    auto currentGroup = Configs::dataManager->groupsRepo->CurrentGroup();
+
+    if (addressFilterString.isEmpty() &&
+        nameFilterString.isEmpty() &&
+        typeFilterString.isEmpty() &&
+        countryFilterString.isEmpty() &&
+        (!currentGroup || currentGroup->allowed_countries.isEmpty()))
+    {
+        return profileIDs;
+    }
     QList<int> res;
+
     auto profiles = Configs::dataManager->profilesRepo->GetProfileBatch(profileIDs);
+
     for (const auto& profile : profiles)
     {
         if (!profile)
@@ -1869,30 +1880,108 @@ QList<int> MainWindow::filterProfilesList(const QList<int>& profileIDs)
         }
 
         auto countryMatches = [&]() {
-            if (countryFilterString.isEmpty())
+            if (!countryFilterString.isEmpty())
+            {
+                bool match = false;
+                if (!profile->test_country.isEmpty())
+                {
+                    match = profile->test_country.contains(
+                        countryFilterString,
+                        Qt::CaseInsensitive
+                    );
+                }
+                else if (profile->outbound)
+                {
+                    match = profile->outbound->name.contains(
+                        countryFilterString,
+                        Qt::CaseInsensitive
+                    );
+                }
+                if (!match)
+                    return false;
+            }
+
+            if (!currentGroup || currentGroup->allowed_countries.isEmpty())
                 return true;
 
-            if (!profile->test_country.isEmpty())
-                return profile->test_country.contains(countryFilterString, Qt::CaseInsensitive);
+            QString profileCountry = profile->test_country;
+            if (profileCountry.isEmpty() && profile->outbound)
+            {
+                profileCountry = profile->outbound->name;
+            }
 
-            return profile->outbound &&
-                profile->outbound->name.contains(countryFilterString, Qt::CaseInsensitive);
+            for (const auto& country : currentGroup->allowed_countries)
+            {
+                if (profileCountry.contains(country, Qt::CaseInsensitive))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         };
 
         auto portMatches = [&]() {
+            if (!profile->outbound)
+                return false;
+
             QString val = addressFilterString.mid(5);
-            if (!val.contains(':')) return val.isEmpty() ? false : profile->outbound->server_port == val.toInt();
+
+            if (!val.contains(':'))
+            {
+                return !val.isEmpty() &&
+                       profile->outbound->server_port == val.toInt();
+            }
+
             QStringList p = val.split(':');
-            bool minOk = p[0].isEmpty() || profile->outbound->server_port >= p[0].toInt();
-            bool maxOk = (p.size() < 2 || p[1].isEmpty()) || profile->outbound->server_port <= p[1].toInt();
+
+            bool minOk = p[0].isEmpty() ||
+                         profile->outbound->server_port >= p[0].toInt();
+
+            bool maxOk = (p.size() < 2 || p[1].isEmpty()) ||
+                         profile->outbound->server_port <= p[1].toInt();
+
             return minOk && maxOk;
         };
-        if ((addressFilterString.isEmpty() || (addressFilterString.startsWith("port=") ? portMatches() : profile->outbound->server.contains(addressFilterString, Qt::CaseInsensitive)))
-            && (nameFilterString.isEmpty() || profile->outbound->name.contains(nameFilterString, Qt::CaseInsensitive))
-            && (typeFilterString.isEmpty() || profile->type.contains(typeFilterString, Qt::CaseInsensitive))
-            //&& (countryFilterString.isEmpty() || profile->test_country.contains(countryFilterString, Qt::CaseInsensitive)))
+
+
+        bool addressMatches =
+            addressFilterString.isEmpty() ||
+            (!profile->outbound ? false :
+                (addressFilterString.startsWith("port=")
+                    ? portMatches()
+                    : profile->outbound->server.contains(
+                        addressFilterString,
+                        Qt::CaseInsensitive
+                    )));
+
+
+        bool nameMatches =
+            nameFilterString.isEmpty() ||
+            (profile->outbound &&
+             profile->outbound->name.contains(
+                 nameFilterString,
+                 Qt::CaseInsensitive
+             ));
+
+
+        bool typeMatches =
+            typeFilterString.isEmpty() ||
+            profile->type.contains(
+                typeFilterString,
+                Qt::CaseInsensitive
+            );
+
+
+        if (addressMatches &&
+            nameMatches &&
+            typeMatches &&
+            countryMatches())
+        {
             res.append(profile->id);
+        }
     }
+
     return res;
 }
 

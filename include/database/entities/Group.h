@@ -50,6 +50,7 @@ namespace Configs
         trafficBy traffic_sort_by = trafficBy::total;
         testShowItems test_items_to_show = testShowItems::all;
         QList<std::pair<int, int>> selectedProfilesIdIdxPairs; // memory only, no need to save to db, pairs of (profileID, index)
+        QStringList allowed_countries;
 
         Group() = default;
 
