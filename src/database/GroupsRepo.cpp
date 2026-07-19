@@ -65,11 +65,11 @@ namespace Configs {
         json["landing_proxy_id"] = group->landing_proxy_id;
         json["column_width"] = QListInt2QJsonArray(group->column_width);
         json["profiles"] = QListInt2QJsonArray(group->profiles);
+        json["allowed_countries"] = QJsonArray::fromStringList(group->allowed_countries);
         json["scroll_last_profile"] = group->scroll_last_profile;
         json["test_sort_by"] = static_cast<int>(group->test_sort_by);
         json["traffic_sort_by"] = static_cast<int>(group->traffic_sort_by);
         json["test_items_to_show"] = static_cast<int>(group->test_items_to_show);
-        json["allowed_countries"] = QJsonArray::fromStringList(group->allowed_countries);
         return json;
     }
 

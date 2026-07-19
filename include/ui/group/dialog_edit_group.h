@@ -43,4 +43,6 @@ private slots:
     void accept() override;
 
     QString get_proxy_name(int id);
+signals:
+    void groupFilterChanged();
 };

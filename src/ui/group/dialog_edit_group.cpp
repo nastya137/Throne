@@ -174,14 +174,12 @@ DialogEditGroup::DialogEditGroup(const std::shared_ptr<Configs::Group> &ent, QWi
         QApplication::clipboard()->setText(links.join("\n"));
         MessageBoxInfo(software_name, tr("Copied"));
     });
-    connect(ui->country_filter_button, &QPushButton::clicked,
-    this, [this] {
+    connect(ui->country_filter_button, &QPushButton::clicked, this, [this] {
 
         DialogCountryFilter dialog(this);
         if(dialog.exec() == QDialog::Accepted)
         {
-            auto countries = dialog.selectedCountries();
-            qDebug() << countries;
+            this->ent->allowed_countries = dialog.selectedCountries();
         }
     });
 

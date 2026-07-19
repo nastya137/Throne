@@ -98,13 +98,11 @@ QStringList DialogCountryFilter::selectedCountries() const
 {
     QStringList result;
 
-    for (auto it = countryChecks.begin();
-         it != countryChecks.end();
-         ++it)
+    for (auto box : countryBoxes)
     {
-        if (it.value()->isChecked())
+        if (box->isChecked())
         {
-            result.append(it.key());
+            result.append(box->text());
         }
     }
 
