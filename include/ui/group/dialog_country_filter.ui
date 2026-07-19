@@ -49,7 +49,11 @@
     <bool>true</bool>
     </property>
     <widget class="QWidget" name="countries_widget">
-    <layout class="QVBoxLayout" name="countries_layout"/>
+      <layout class="QVBoxLayout" name="countries_layout">
+          <property name="alignment">
+              <set>Qt::AlignTop</set>
+          </property>
+      </layout>
     </widget>
   </widget>
   <widget class="QPushButton" name="select_all">
