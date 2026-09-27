@@ -6,6 +6,26 @@ Supports Windows 11/10/8/7 / Linux / MacOS out of the box.
 
 <img width="1002" height="789" alt="image" src="https://github.com/user-attachments/assets/3c9bf428-e3bd-426b-8ca1-cc57ecbedd7e" />
 
+## About this fork
+
+This fork adds per-group country filtering to Throne, allowing users
+to display and test proxy servers only from selected countries.
+
+### Added in this fork
+
+- Searchable country selector with multi-select
+- Separate country allowlist for each proxy group
+- Persistent settings stored in SQLite
+- Filtering based on detected country or a flag in the profile name
+- The filter is also applied when running profile tests
+
+### Usage
+
+1. Open a proxy group for editing.
+2. Select **Country filter → Configure...**
+3. Choose the required countries.
+4. Leave the selection empty to allow all countries.
+
 ### Note on MacOS releases
 Apple platforms have a very strict security policy and since Throne does not have a signed certificate, you will have to remove the quarantine using `xattr -d com.apple.quarantine /path/to/throne.app`. Also to get the built-in privilege escalation to work, `Terminal` should have the `Full Disk` access.
 
