@@ -1,6 +1,10 @@
 #include "include/ui/group/dialog_country_filter.h"
 #include "include/global/CountryHelper.hpp"
 
+#include <QCollator>
+
+#include <algorithm>
+
 DialogCountryFilter::DialogCountryFilter(const QStringList &selectedCodes,
                                          QWidget *parent)
     : QDialog(parent),
@@ -47,12 +51,19 @@ DialogCountryFilter::~DialogCountryFilter()
 
 void DialogCountryFilter::loadCountries()
 {
-    for(auto it = CountryMap.begin();
-        it != CountryMap.end();
-        ++it)
-    {
-        QString countryName = it.key();
-        QString countryCode = it.value();
+    QList<QPair<QString, QString>> countries;
+    countries.reserve(CountryMap.size());
+    for (auto it = CountryMap.cbegin(); it != CountryMap.cend(); ++it) {
+        countries.append({CountryCodeToName(it.value()), it.value()});
+    }
+
+    QCollator collator;
+    collator.setCaseSensitivity(Qt::CaseInsensitive);
+    std::sort(countries.begin(), countries.end(), [&collator](const auto& left, const auto& right) {
+        return collator.compare(left.first, right.first) < 0;
+    });
+
+    for (const auto& [countryName, countryCode] : countries) {
 
         auto *box = new QCheckBox(countryName, this);
 
@@ -68,7 +79,6 @@ void DialogCountryFilter::loadCountries()
         ui->countries_layout->addWidget(box);
 
         countryBoxes.append(box);
-        countryChecks[countryName] = box;
     }
 }
 
@@ -77,9 +87,9 @@ void DialogCountryFilter::filterCountries(
 {
     for(auto box : countryBoxes)
     {
-        bool visible =
-            box->text()
-            .contains(
+        const bool visible =
+            box->text().contains(text, Qt::CaseInsensitive) ||
+            box->property("countryCode").toString().contains(
                 text,
                 Qt::CaseInsensitive
             );

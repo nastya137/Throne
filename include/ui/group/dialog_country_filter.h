@@ -24,7 +24,6 @@ private:
     QStringList initialSelectedCodes; // например, {"DE", "FR"}
 
     QList<QCheckBox*> countryBoxes;
-    QMap<QString, QCheckBox*> countryChecks;
 
     void loadCountries();
     void filterCountries(const QString& text);

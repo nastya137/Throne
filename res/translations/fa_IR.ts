@@ -2841,4 +2841,983 @@ https://matsuridayo.github.io/n-configuration/#vpn-tun</translation>
         <translation>مستقیم</translation>
     </message>
 </context>
+<context>
+    <name>CountryNames</name>
+    <message>
+        <source>Afghanistan</source>
+        <translation>افغانستان</translation>
+    </message>
+    <message>
+        <source>Aland Islands</source>
+        <translation>جزایر آلاند</translation>
+    </message>
+    <message>
+        <source>Albania</source>
+        <translation>آلبانی</translation>
+    </message>
+    <message>
+        <source>Algeria</source>
+        <translation>الجزایر</translation>
+    </message>
+    <message>
+        <source>American Samoa</source>
+        <translation>ساموآی امریکا</translation>
+    </message>
+    <message>
+        <source>Andorra</source>
+        <translation>آندورا</translation>
+    </message>
+    <message>
+        <source>Angola</source>
+        <translation>آنگولا</translation>
+    </message>
+    <message>
+        <source>Anguilla</source>
+        <translation>آنگویلا</translation>
+    </message>
+    <message>
+        <source>Antarctica</source>
+        <translation>جنوبگان</translation>
+    </message>
+    <message>
+        <source>Antigua And Barbuda</source>
+        <translation>آنتیگوا و باربودا</translation>
+    </message>
+    <message>
+        <source>Argentina</source>
+        <translation>آرژانتین</translation>
+    </message>
+    <message>
+        <source>Armenia</source>
+        <translation>ارمنستان</translation>
+    </message>
+    <message>
+        <source>Netherlands Antilles</source>
+        <translation>آنتیل هلند</translation>
+    </message>
+    <message>
+        <source>Aruba</source>
+        <translation>آروبا</translation>
+    </message>
+    <message>
+        <source>Australia</source>
+        <translation>استرالیا</translation>
+    </message>
+    <message>
+        <source>Austria</source>
+        <translation>اتریش</translation>
+    </message>
+    <message>
+        <source>Azerbaijan</source>
+        <translation>جمهوری آذربایجان</translation>
+    </message>
+    <message>
+        <source>Bahamas</source>
+        <translation>باهاما</translation>
+    </message>
+    <message>
+        <source>Bahrain</source>
+        <translation>بحرین</translation>
+    </message>
+    <message>
+        <source>Bangladesh</source>
+        <translation>بنگلادش</translation>
+    </message>
+    <message>
+        <source>Barbados</source>
+        <translation>باربادوس</translation>
+    </message>
+    <message>
+        <source>Belarus</source>
+        <translation>بلاروس</translation>
+    </message>
+    <message>
+        <source>Belgium</source>
+        <translation>بلژیک</translation>
+    </message>
+    <message>
+        <source>Belize</source>
+        <translation>بلیز</translation>
+    </message>
+    <message>
+        <source>Benin</source>
+        <translation>بنین</translation>
+    </message>
+    <message>
+        <source>Bermuda</source>
+        <translation>برمودا</translation>
+    </message>
+    <message>
+        <source>Bhutan</source>
+        <translation>بوتان</translation>
+    </message>
+    <message>
+        <source>Bolivia</source>
+        <translation>بولیوی</translation>
+    </message>
+    <message>
+        <source>Bosnia And Herzegovina</source>
+        <translation>بوسنی و هرزگوین</translation>
+    </message>
+    <message>
+        <source>Botswana</source>
+        <translation>بوتسوانا</translation>
+    </message>
+    <message>
+        <source>Bouvet Island</source>
+        <translation>جزیرهٔ بووه</translation>
+    </message>
+    <message>
+        <source>Brazil</source>
+        <translation>برزیل</translation>
+    </message>
+    <message>
+        <source>British Indian Ocean Territory</source>
+        <translation>قلمرو بریتانیا در اقیانوس هند</translation>
+    </message>
+    <message>
+        <source>Brunei Darussalam</source>
+        <translation>برونئی</translation>
+    </message>
+    <message>
+        <source>Bulgaria</source>
+        <translation>بلغارستان</translation>
+    </message>
+    <message>
+        <source>Burkina Faso</source>
+        <translation>بورکینافاسو</translation>
+    </message>
+    <message>
+        <source>Burundi</source>
+        <translation>بوروندی</translation>
+    </message>
+    <message>
+        <source>Cambodia</source>
+        <translation>کامبوج</translation>
+    </message>
+    <message>
+        <source>Cameroon</source>
+        <translation>کامرون</translation>
+    </message>
+    <message>
+        <source>Canada</source>
+        <translation>کانادا</translation>
+    </message>
+    <message>
+        <source>Cape Verde</source>
+        <translation>کیپ‌ورد</translation>
+    </message>
+    <message>
+        <source>Cayman Islands</source>
+        <translation>جزایر کِیمن</translation>
+    </message>
+    <message>
+        <source>Central African Republic</source>
+        <translation>جمهوری افریقای مرکزی</translation>
+    </message>
+    <message>
+        <source>Chad</source>
+        <translation>چاد</translation>
+    </message>
+    <message>
+        <source>Chile</source>
+        <translation>شیلی</translation>
+    </message>
+    <message>
+        <source>China</source>
+        <translation>چین</translation>
+    </message>
+    <message>
+        <source>Christmas Island</source>
+        <translation>جزیرهٔ کریسمس</translation>
+    </message>
+    <message>
+        <source>Cocos (Keeling) Islands</source>
+        <translation>جزایر کوکوس</translation>
+    </message>
+    <message>
+        <source>Colombia</source>
+        <translation>کلمبیا</translation>
+    </message>
+    <message>
+        <source>Comoros</source>
+        <translation>کومور</translation>
+    </message>
+    <message>
+        <source>Congo</source>
+        <translation>کنگو - برازویل</translation>
+    </message>
+    <message>
+        <source>Congo, Democratic Republic</source>
+        <translation>کنگو - کینشاسا</translation>
+    </message>
+    <message>
+        <source>Cook Islands</source>
+        <translation>جزایر کوک</translation>
+    </message>
+    <message>
+        <source>Costa Rica</source>
+        <translation>کاستاریکا</translation>
+    </message>
+    <message>
+        <source>Cote D&quot;Ivoire</source>
+        <translation>ساحل عاج</translation>
+    </message>
+    <message>
+        <source>Croatia</source>
+        <translation>کرواسی</translation>
+    </message>
+    <message>
+        <source>Cuba</source>
+        <translation>کوبا</translation>
+    </message>
+    <message>
+        <source>Cyprus</source>
+        <translation>قبرس</translation>
+    </message>
+    <message>
+        <source>Czech Republic</source>
+        <translation>چک</translation>
+    </message>
+    <message>
+        <source>Denmark</source>
+        <translation>دانمارک</translation>
+    </message>
+    <message>
+        <source>Djibouti</source>
+        <translation>جیبوتی</translation>
+    </message>
+    <message>
+        <source>Dominica</source>
+        <translation>دومینیکا</translation>
+    </message>
+    <message>
+        <source>Dominican Republic</source>
+        <translation>جمهوری دومینیکن</translation>
+    </message>
+    <message>
+        <source>Ecuador</source>
+        <translation>اکوادور</translation>
+    </message>
+    <message>
+        <source>Egypt</source>
+        <translation>مصر</translation>
+    </message>
+    <message>
+        <source>El Salvador</source>
+        <translation>السالوادور</translation>
+    </message>
+    <message>
+        <source>Equatorial Guinea</source>
+        <translation>گینهٔ استوایی</translation>
+    </message>
+    <message>
+        <source>Eritrea</source>
+        <translation>اریتره</translation>
+    </message>
+    <message>
+        <source>Estonia</source>
+        <translation>استونی</translation>
+    </message>
+    <message>
+        <source>Ethiopia</source>
+        <translation>اتیوپی</translation>
+    </message>
+    <message>
+        <source>Falkland Islands (Malvinas)</source>
+        <translation>جزایر فالکلند</translation>
+    </message>
+    <message>
+        <source>Faroe Islands</source>
+        <translation>جزایر فارو</translation>
+    </message>
+    <message>
+        <source>Fiji</source>
+        <translation>فیجی</translation>
+    </message>
+    <message>
+        <source>Finland</source>
+        <translation>فنلاند</translation>
+    </message>
+    <message>
+        <source>France</source>
+        <translation>فرانسه</translation>
+    </message>
+    <message>
+        <source>French Guiana</source>
+        <translation>گویان فرانسه</translation>
+    </message>
+    <message>
+        <source>French Polynesia</source>
+        <translation>پلی‌نزی فرانسه</translation>
+    </message>
+    <message>
+        <source>French Southern Territories</source>
+        <translation>سرزمین‌های جنوبی فرانسه</translation>
+    </message>
+    <message>
+        <source>Gabon</source>
+        <translation>گابن</translation>
+    </message>
+    <message>
+        <source>Gambia</source>
+        <translation>گامبیا</translation>
+    </message>
+    <message>
+        <source>Georgia</source>
+        <translation>گرجستان</translation>
+    </message>
+    <message>
+        <source>Germany</source>
+        <translation>آلمان</translation>
+    </message>
+    <message>
+        <source>Ghana</source>
+        <translation>غنا</translation>
+    </message>
+    <message>
+        <source>Gibraltar</source>
+        <translation>جبل‌الطارق</translation>
+    </message>
+    <message>
+        <source>Greece</source>
+        <translation>یونان</translation>
+    </message>
+    <message>
+        <source>Greenland</source>
+        <translation>گرینلند</translation>
+    </message>
+    <message>
+        <source>Grenada</source>
+        <translation>گرنادا</translation>
+    </message>
+    <message>
+        <source>Guadeloupe</source>
+        <translation>گوادلوپ</translation>
+    </message>
+    <message>
+        <source>Guam</source>
+        <translation>گوام</translation>
+    </message>
+    <message>
+        <source>Guatemala</source>
+        <translation>گواتمالا</translation>
+    </message>
+    <message>
+        <source>Guernsey</source>
+        <translation>گرنزی</translation>
+    </message>
+    <message>
+        <source>Guinea</source>
+        <translation>گینه</translation>
+    </message>
+    <message>
+        <source>Guinea-Bissau</source>
+        <translation>گینهٔ بیسائو</translation>
+    </message>
+    <message>
+        <source>Guyana</source>
+        <translation>گویان</translation>
+    </message>
+    <message>
+        <source>Haiti</source>
+        <translation>هائیتی</translation>
+    </message>
+    <message>
+        <source>Heard Island &amp; Mcdonald Islands</source>
+        <translation>هرد و جزایر مک‌دونالد</translation>
+    </message>
+    <message>
+        <source>Holy See (Vatican City State)</source>
+        <translation>واتیکان</translation>
+    </message>
+    <message>
+        <source>Honduras</source>
+        <translation>هندوراس</translation>
+    </message>
+    <message>
+        <source>Hong Kong</source>
+        <translation>هنگ‌کنگ، منطقهٔ ویژهٔ اداری چین</translation>
+    </message>
+    <message>
+        <source>Hungary</source>
+        <translation>مجارستان</translation>
+    </message>
+    <message>
+        <source>Iceland</source>
+        <translation>ایسلند</translation>
+    </message>
+    <message>
+        <source>India</source>
+        <translation>هند</translation>
+    </message>
+    <message>
+        <source>Indonesia</source>
+        <translation>اندونزی</translation>
+    </message>
+    <message>
+        <source>Iran, Islamic Republic Of</source>
+        <translation>ایران</translation>
+    </message>
+    <message>
+        <source>Iraq</source>
+        <translation>عراق</translation>
+    </message>
+    <message>
+        <source>Ireland</source>
+        <translation>ایرلند</translation>
+    </message>
+    <message>
+        <source>Isle Of Man</source>
+        <translation>جزیرهٔ من</translation>
+    </message>
+    <message>
+        <source>Israel</source>
+        <translation>اسرائیل</translation>
+    </message>
+    <message>
+        <source>Italy</source>
+        <translation>ایتالیا</translation>
+    </message>
+    <message>
+        <source>Jamaica</source>
+        <translation>جامائیکا</translation>
+    </message>
+    <message>
+        <source>Japan</source>
+        <translation>ژاپن</translation>
+    </message>
+    <message>
+        <source>Jersey</source>
+        <translation>جرزی</translation>
+    </message>
+    <message>
+        <source>Jordan</source>
+        <translation>اردن</translation>
+    </message>
+    <message>
+        <source>Kazakhstan</source>
+        <translation>قزاقستان</translation>
+    </message>
+    <message>
+        <source>Kenya</source>
+        <translation>کنیا</translation>
+    </message>
+    <message>
+        <source>Kiribati</source>
+        <translation>کیریباتی</translation>
+    </message>
+    <message>
+        <source>Korea</source>
+        <translation>کرهٔ جنوبی</translation>
+    </message>
+    <message>
+        <source>Kuwait</source>
+        <translation>کویت</translation>
+    </message>
+    <message>
+        <source>Kyrgyzstan</source>
+        <translation>قرقیزستان</translation>
+    </message>
+    <message>
+        <source>Lao People&quot;s Democratic Republic</source>
+        <translation>لائوس</translation>
+    </message>
+    <message>
+        <source>Latvia</source>
+        <translation>لتونی</translation>
+    </message>
+    <message>
+        <source>Lebanon</source>
+        <translation>لبنان</translation>
+    </message>
+    <message>
+        <source>Lesotho</source>
+        <translation>لسوتو</translation>
+    </message>
+    <message>
+        <source>Liberia</source>
+        <translation>لیبریا</translation>
+    </message>
+    <message>
+        <source>Libyan Arab Jamahiriya</source>
+        <translation>لیبی</translation>
+    </message>
+    <message>
+        <source>Liechtenstein</source>
+        <translation>لیختن‌اشتاین</translation>
+    </message>
+    <message>
+        <source>Lithuania</source>
+        <translation>لیتوانی</translation>
+    </message>
+    <message>
+        <source>Luxembourg</source>
+        <translation>لوکزامبورگ</translation>
+    </message>
+    <message>
+        <source>Macao</source>
+        <translation>ماکائو، منطقهٔ ویژهٔ اداری چین</translation>
+    </message>
+    <message>
+        <source>Macedonia</source>
+        <translation>مقدونیهٔ شمالی</translation>
+    </message>
+    <message>
+        <source>Madagascar</source>
+        <translation>ماداگاسکار</translation>
+    </message>
+    <message>
+        <source>Malawi</source>
+        <translation>مالاوی</translation>
+    </message>
+    <message>
+        <source>Malaysia</source>
+        <translation>مالزی</translation>
+    </message>
+    <message>
+        <source>Maldives</source>
+        <translation>مالدیو</translation>
+    </message>
+    <message>
+        <source>Mali</source>
+        <translation>مالی</translation>
+    </message>
+    <message>
+        <source>Malta</source>
+        <translation>مالت</translation>
+    </message>
+    <message>
+        <source>Marshall Islands</source>
+        <translation>جزایر مارشال</translation>
+    </message>
+    <message>
+        <source>Martinique</source>
+        <translation>مارتینیک</translation>
+    </message>
+    <message>
+        <source>Mauritania</source>
+        <translation>موریتانی</translation>
+    </message>
+    <message>
+        <source>Mauritius</source>
+        <translation>موریس</translation>
+    </message>
+    <message>
+        <source>Mayotte</source>
+        <translation>مایوت</translation>
+    </message>
+    <message>
+        <source>Mexico</source>
+        <translation>مکزیک</translation>
+    </message>
+    <message>
+        <source>Micronesia, Federated States Of</source>
+        <translation>میکرونزی</translation>
+    </message>
+    <message>
+        <source>Moldova</source>
+        <translation>مولداوی</translation>
+    </message>
+    <message>
+        <source>Monaco</source>
+        <translation>موناکو</translation>
+    </message>
+    <message>
+        <source>Mongolia</source>
+        <translation>مغولستان</translation>
+    </message>
+    <message>
+        <source>Montenegro</source>
+        <translation>مونته‌نگرو</translation>
+    </message>
+    <message>
+        <source>Montserrat</source>
+        <translation>مونت‌سرات</translation>
+    </message>
+    <message>
+        <source>Morocco</source>
+        <translation>مراکش</translation>
+    </message>
+    <message>
+        <source>Mozambique</source>
+        <translation>موزامبیک</translation>
+    </message>
+    <message>
+        <source>Myanmar</source>
+        <translation>میانمار (برمه)</translation>
+    </message>
+    <message>
+        <source>Namibia</source>
+        <translation>نامیبیا</translation>
+    </message>
+    <message>
+        <source>Nauru</source>
+        <translation>نائورو</translation>
+    </message>
+    <message>
+        <source>Nepal</source>
+        <translation>نپال</translation>
+    </message>
+    <message>
+        <source>Netherlands</source>
+        <translation>هلند</translation>
+    </message>
+    <message>
+        <source>New Caledonia</source>
+        <translation>کالدونیای جدید</translation>
+    </message>
+    <message>
+        <source>New Zealand</source>
+        <translation>نیوزیلند</translation>
+    </message>
+    <message>
+        <source>Nicaragua</source>
+        <translation>نیکاراگوئه</translation>
+    </message>
+    <message>
+        <source>Niger</source>
+        <translation>نیجر</translation>
+    </message>
+    <message>
+        <source>Nigeria</source>
+        <translation>نیجریه</translation>
+    </message>
+    <message>
+        <source>Niue</source>
+        <translation>نیوئه</translation>
+    </message>
+    <message>
+        <source>Norfolk Island</source>
+        <translation>جزیرهٔ نورفولک</translation>
+    </message>
+    <message>
+        <source>Northern Mariana Islands</source>
+        <translation>جزایر ماریانای شمالی</translation>
+    </message>
+    <message>
+        <source>Norway</source>
+        <translation>نروژ</translation>
+    </message>
+    <message>
+        <source>Oman</source>
+        <translation>عمان</translation>
+    </message>
+    <message>
+        <source>Pakistan</source>
+        <translation>پاکستان</translation>
+    </message>
+    <message>
+        <source>Palau</source>
+        <translation>پالائو</translation>
+    </message>
+    <message>
+        <source>Palestinian Territory, Occupied</source>
+        <translation>سرزمین‌های فلسطینی</translation>
+    </message>
+    <message>
+        <source>Panama</source>
+        <translation>پاناما</translation>
+    </message>
+    <message>
+        <source>Papua New Guinea</source>
+        <translation>پاپوا گینهٔ نو</translation>
+    </message>
+    <message>
+        <source>Paraguay</source>
+        <translation>پاراگوئه</translation>
+    </message>
+    <message>
+        <source>Peru</source>
+        <translation>پرو</translation>
+    </message>
+    <message>
+        <source>Philippines</source>
+        <translation>فیلیپین</translation>
+    </message>
+    <message>
+        <source>Pitcairn</source>
+        <translation>جزایر پیت‌کرن</translation>
+    </message>
+    <message>
+        <source>Poland</source>
+        <translation>لهستان</translation>
+    </message>
+    <message>
+        <source>Portugal</source>
+        <translation>پرتغال</translation>
+    </message>
+    <message>
+        <source>Puerto Rico</source>
+        <translation>پورتوریکو</translation>
+    </message>
+    <message>
+        <source>Qatar</source>
+        <translation>قطر</translation>
+    </message>
+    <message>
+        <source>Reunion</source>
+        <translation>رئونیون</translation>
+    </message>
+    <message>
+        <source>Romania</source>
+        <translation>رومانی</translation>
+    </message>
+    <message>
+        <source>Russian Federation</source>
+        <translation>روسیه</translation>
+    </message>
+    <message>
+        <source>Rwanda</source>
+        <translation>رواندا</translation>
+    </message>
+    <message>
+        <source>Saint Barthelemy</source>
+        <translation>سن بارتلمی</translation>
+    </message>
+    <message>
+        <source>Saint Helena</source>
+        <translation>سنت هلن</translation>
+    </message>
+    <message>
+        <source>Saint Kitts And Nevis</source>
+        <translation>سنت کیتس و نویس</translation>
+    </message>
+    <message>
+        <source>Saint Lucia</source>
+        <translation>سنت لوسیا</translation>
+    </message>
+    <message>
+        <source>Saint Martin</source>
+        <translation>سنت مارتین</translation>
+    </message>
+    <message>
+        <source>Saint Pierre And Miquelon</source>
+        <translation>سن پیر و میکلن</translation>
+    </message>
+    <message>
+        <source>Saint Vincent And Grenadines</source>
+        <translation>سنت وینسنت و گرنادین</translation>
+    </message>
+    <message>
+        <source>Samoa</source>
+        <translation>ساموآ</translation>
+    </message>
+    <message>
+        <source>San Marino</source>
+        <translation>سان‌مارینو</translation>
+    </message>
+    <message>
+        <source>Sao Tome And Principe</source>
+        <translation>سائوتومه و پرینسیپ</translation>
+    </message>
+    <message>
+        <source>Saudi Arabia</source>
+        <translation>عربستان سعودی</translation>
+    </message>
+    <message>
+        <source>Senegal</source>
+        <translation>سنگال</translation>
+    </message>
+    <message>
+        <source>Serbia</source>
+        <translation>صربستان</translation>
+    </message>
+    <message>
+        <source>Seychelles</source>
+        <translation>سیشل</translation>
+    </message>
+    <message>
+        <source>Sierra Leone</source>
+        <translation>سیرالئون</translation>
+    </message>
+    <message>
+        <source>Singapore</source>
+        <translation>سنگاپور</translation>
+    </message>
+    <message>
+        <source>Slovakia</source>
+        <translation>اسلواکی</translation>
+    </message>
+    <message>
+        <source>Slovenia</source>
+        <translation>اسلوونی</translation>
+    </message>
+    <message>
+        <source>Solomon Islands</source>
+        <translation>جزایر سلیمان</translation>
+    </message>
+    <message>
+        <source>Somalia</source>
+        <translation>سومالی</translation>
+    </message>
+    <message>
+        <source>South Africa</source>
+        <translation>افریقای جنوبی</translation>
+    </message>
+    <message>
+        <source>South Georgia And Sandwich Isl.</source>
+        <translation>جورجیای جنوبی و جزایر ساندویچ جنوبی</translation>
+    </message>
+    <message>
+        <source>Spain</source>
+        <translation>اسپانیا</translation>
+    </message>
+    <message>
+        <source>Sri Lanka</source>
+        <translation>سری‌لانکا</translation>
+    </message>
+    <message>
+        <source>Sudan</source>
+        <translation>سودان</translation>
+    </message>
+    <message>
+        <source>Suriname</source>
+        <translation>سورینام</translation>
+    </message>
+    <message>
+        <source>Svalbard And Jan Mayen</source>
+        <translation>سوالبارد و یان ماین</translation>
+    </message>
+    <message>
+        <source>Swaziland</source>
+        <translation>اسواتینی</translation>
+    </message>
+    <message>
+        <source>Sweden</source>
+        <translation>سوئد</translation>
+    </message>
+    <message>
+        <source>Switzerland</source>
+        <translation>سوئیس</translation>
+    </message>
+    <message>
+        <source>Syrian Arab Republic</source>
+        <translation>سوریه</translation>
+    </message>
+    <message>
+        <source>Taiwan</source>
+        <translation>تایوان</translation>
+    </message>
+    <message>
+        <source>Tajikistan</source>
+        <translation>تاجیکستان</translation>
+    </message>
+    <message>
+        <source>Tanzania</source>
+        <translation>تانزانیا</translation>
+    </message>
+    <message>
+        <source>Thailand</source>
+        <translation>تایلند</translation>
+    </message>
+    <message>
+        <source>Timor-Leste</source>
+        <translation>تیمور-لسته</translation>
+    </message>
+    <message>
+        <source>Togo</source>
+        <translation>توگو</translation>
+    </message>
+    <message>
+        <source>Tokelau</source>
+        <translation>توکلائو</translation>
+    </message>
+    <message>
+        <source>Tonga</source>
+        <translation>تونگا</translation>
+    </message>
+    <message>
+        <source>Trinidad And Tobago</source>
+        <translation>ترینیداد و توباگو</translation>
+    </message>
+    <message>
+        <source>Tunisia</source>
+        <translation>تونس</translation>
+    </message>
+    <message>
+        <source>Turkey</source>
+        <translation>ترکیه</translation>
+    </message>
+    <message>
+        <source>Turkmenistan</source>
+        <translation>ترکمنستان</translation>
+    </message>
+    <message>
+        <source>Turks And Caicos Islands</source>
+        <translation>جزایر تورکس و کایکوس</translation>
+    </message>
+    <message>
+        <source>Tuvalu</source>
+        <translation>تووالو</translation>
+    </message>
+    <message>
+        <source>Uganda</source>
+        <translation>اوگاندا</translation>
+    </message>
+    <message>
+        <source>Ukraine</source>
+        <translation>اوکراین</translation>
+    </message>
+    <message>
+        <source>United Arab Emirates</source>
+        <translation>امارات متحدهٔ عربی</translation>
+    </message>
+    <message>
+        <source>United Kingdom</source>
+        <translation>بریتانیا</translation>
+    </message>
+    <message>
+        <source>United States</source>
+        <translation>ایالات متحده</translation>
+    </message>
+    <message>
+        <source>United States Outlying Islands</source>
+        <translation>جزایر دورافتادهٔ ایالات متحده</translation>
+    </message>
+    <message>
+        <source>Uruguay</source>
+        <translation>اروگوئه</translation>
+    </message>
+    <message>
+        <source>Uzbekistan</source>
+        <translation>ازبکستان</translation>
+    </message>
+    <message>
+        <source>Vanuatu</source>
+        <translation>وانواتو</translation>
+    </message>
+    <message>
+        <source>Venezuela</source>
+        <translation>ونزوئلا</translation>
+    </message>
+    <message>
+        <source>Viet Nam</source>
+        <translation>ویتنام</translation>
+    </message>
+    <message>
+        <source>Virgin Islands, British</source>
+        <translation>جزایر ویرجین بریتانیا</translation>
+    </message>
+    <message>
+        <source>Virgin Islands, U.S.</source>
+        <translation>جزایر ویرجین ایالات متحده</translation>
+    </message>
+    <message>
+        <source>Wallis And Futuna</source>
+        <translation>والیس و فوتونا</translation>
+    </message>
+    <message>
+        <source>Western Sahara</source>
+        <translation>صحرای غربی</translation>
+    </message>
+    <message>
+        <source>Yemen</source>
+        <translation>یمن</translation>
+    </message>
+    <message>
+        <source>Zambia</source>
+        <translation>زامبیا</translation>
+    </message>
+</context>
 </TS>

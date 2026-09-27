@@ -14,6 +14,20 @@ QString CountryCodeToFlag(const QString& countryCode) {
     return QString::fromUcs4(ucs4.data(), countryCode.length());
 }
 
+QString CountryCodeToName(const QString& countryCode) {
+    const QString normalizedCode = countryCode.trimmed().toUpper();
+    const QString sourceName = CountryMap.key(normalizedCode);
+    if (sourceName.isEmpty()) {
+        return normalizedCode;
+    }
+
+    const QByteArray sourceNameUtf8 = sourceName.toUtf8();
+    return QCoreApplication::translate(
+        "CountryNames",
+        sourceNameUtf8.constData()
+    );
+}
+
 QString countryCodeFromFlag(const QString& text) {
     constexpr uint regionalIndicatorA = 0x1F1E6;
     constexpr uint regionalIndicatorZ = 0x1F1FF;
