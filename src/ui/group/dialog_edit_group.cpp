@@ -176,7 +176,7 @@ DialogEditGroup::DialogEditGroup(const std::shared_ptr<Configs::Group> &ent, QWi
     });
     connect(ui->country_filter_button, &QPushButton::clicked, this, [this] {
 
-        DialogCountryFilter dialog(this);
+        DialogCountryFilter dialog(this->ent->allowed_countries, this);
         if(dialog.exec() == QDialog::Accepted)
         {
             this->ent->allowed_countries = dialog.selectedCountries();

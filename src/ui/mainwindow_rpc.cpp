@@ -429,7 +429,7 @@ void MainWindow::iptest_current_group(const QList<int>& profileIDs) {
             speedtestRunning.lock();
             MW_show_log("IP test for batch done.");
             runOnUiThread([=,this]{
-                refresh_proxy_list(ids);
+                refresh_proxy_list({}, true);
             });
         };
         for (int i = 0; i < profileIDs.length(); i += 100) {

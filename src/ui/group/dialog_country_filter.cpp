@@ -1,9 +1,11 @@
 #include "include/ui/group/dialog_country_filter.h"
 #include "include/global/CountryHelper.hpp"
 
-DialogCountryFilter::DialogCountryFilter(QWidget *parent)
+DialogCountryFilter::DialogCountryFilter(const QStringList &selectedCodes,
+                                         QWidget *parent)
     : QDialog(parent),
-      ui(new Ui::DialogCountryFilter)
+      ui(new Ui::DialogCountryFilter),
+      initialSelectedCodes(selectedCodes)
 {
     ui->setupUi(this);
     loadCountries();
@@ -59,6 +61,10 @@ void DialogCountryFilter::loadCountries()
             countryCode
         );
 
+        box->setChecked(
+            initialSelectedCodes.contains(countryCode, Qt::CaseInsensitive)
+        );
+
         ui->countries_layout->addWidget(box);
 
         countryBoxes.append(box);
@@ -100,9 +106,8 @@ QStringList DialogCountryFilter::selectedCountries() const
 
     for (auto box : countryBoxes)
     {
-        if (box->isChecked())
-        {
-            result.append(box->text());
+        if (box->isChecked()) {
+            result.append(box->property("countryCode").toString());
         }
     }
 

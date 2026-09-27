@@ -1,6 +1,7 @@
 #include "include/database/entities/Group.h"
 #include "include/database/GroupsRepo.h"
 #include "include/global/Utils.hpp"
+#include "include/global/CountryHelper.hpp"
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QMutexLocker>
@@ -40,6 +41,21 @@ namespace Configs {
                 updated_at INTEGER NOT NULL DEFAULT (strftime('%s', 'now'))
             )
         )");
+
+        bool hasAllowedCountries = false;
+        {
+            auto columns = db.query("PRAGMA table_info(groups)");
+            if (columns) {
+                while (columns->executeStep()) {
+                    if (columns->getColumn(1).getText() == std::string("allowed_countries_json")) {
+                        hasAllowedCountries = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (!hasAllowedCountries)
+            db.exec("ALTER TABLE groups ADD COLUMN allowed_countries_json TEXT NOT NULL DEFAULT '[]'");
 
         // Create groups_order table to store UI tab order
         db.exec(R"(
@@ -90,7 +106,11 @@ namespace Configs {
         group->profiles = QJsonArray2QListInt(json["profiles"].toArray());
         QJsonArray countriesArray = json["allowed_countries"].toArray();
         for (const auto& country : countriesArray) {
-            group->allowed_countries.append(country.toString());
+            const QString value = country.toString().trimmed();
+            QString code = CountryNameToCode(value);
+            if (code.isEmpty()) code = value.toUpper();
+            if (CountryMap.values().contains(code) && !group->allowed_countries.contains(code))
+                group->allowed_countries.append(code);
         }
         group->scroll_last_profile = json["scroll_last_profile"].toInt(-1);
         group->test_sort_by = static_cast<testBy>(json["test_sort_by"].toInt(0));

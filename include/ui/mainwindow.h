@@ -244,6 +244,8 @@ private:
 
     QList<int> filterProfilesList(const QList<int>& profileIDs);
 
+    QList<int> filterByAllowedCountries(const QList<int>& profileIDs);
+
     QList<int> get_now_selected_list();
 
     QList<int> get_selected_or_group();

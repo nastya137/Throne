@@ -24,6 +24,7 @@
 #include "include/configs/generate.h"
 #include "include/database/GroupsRepo.h"
 #include "include/database/ProfilesRepo.h"
+#include "include/global/CountryHelper.hpp"
 
 
 #include "include/database/RoutesRepo.h"
@@ -904,7 +905,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         urltest_current_group(get_now_selected_list());
     });
     connect(ui->actionUrl_Test_Group, &QAction::triggered, this, [=,this]() {
-        urltest_current_group(Configs::dataManager->groupsRepo->CurrentGroup()->Profiles());
+        auto group = Configs::dataManager->groupsRepo->CurrentGroup();
+        if (group) urltest_current_group(filterByAllowedCountries(group->Profiles()));
     });
     connect(ui->actionSpeedtest_Current, &QAction::triggered, this, [=,this]()
     {
@@ -1855,21 +1857,37 @@ void MainWindow::updateLogFilterFields() {
     excludeCombined.optimize();
 }
 
-QList<int> MainWindow::filterProfilesList(const QList<int>& profileIDs)
+QList<int> MainWindow::filterByAllowedCountries(const QList<int>& profileIDs)
 {
     auto currentGroup = Configs::dataManager->groupsRepo->CurrentGroup();
+    if (!currentGroup || currentGroup->allowed_countries.isEmpty())
+        return profileIDs;
+
+    QList<int> result;
+    auto profiles = Configs::dataManager->profilesRepo->GetProfileBatch(profileIDs);
+    for (const auto& profile : profiles) {
+        if (profile && currentGroup->allowed_countries.contains(
+                effectiveCountryCode(*profile), Qt::CaseInsensitive)) {
+            result.append(profile->id);
+        }
+    }
+    return result;
+}
+
+QList<int> MainWindow::filterProfilesList(const QList<int>& profileIDs)
+{
+    auto countryFilteredIDs = filterByAllowedCountries(profileIDs);
 
     if (addressFilterString.isEmpty() &&
         nameFilterString.isEmpty() &&
         typeFilterString.isEmpty() &&
-        countryFilterString.isEmpty() &&
-        (!currentGroup || currentGroup->allowed_countries.isEmpty()))
+        countryFilterString.isEmpty())
     {
-        return profileIDs;
+        return countryFilteredIDs;
     }
     QList<int> res;
 
-    auto profiles = Configs::dataManager->profilesRepo->GetProfileBatch(profileIDs);
+    auto profiles = Configs::dataManager->profilesRepo->GetProfileBatch(countryFilteredIDs);
 
     for (const auto& profile : profiles)
     {
@@ -1901,24 +1919,7 @@ QList<int> MainWindow::filterProfilesList(const QList<int>& profileIDs)
                     return false;
             }
 
-            if (!currentGroup || currentGroup->allowed_countries.isEmpty())
-                return true;
-
-            QString profileCountry = profile->test_country;
-            if (profileCountry.isEmpty() && profile->outbound)
-            {
-                profileCountry = profile->outbound->name;
-            }
-
-            for (const auto& country : currentGroup->allowed_countries)
-            {
-                if (profileCountry.contains(country, Qt::CaseInsensitive))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return true;
         };
 
         auto portMatches = [&]() {

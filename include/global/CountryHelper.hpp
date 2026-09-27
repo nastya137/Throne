@@ -2,6 +2,10 @@
 
 #include <QMap>
 
+namespace Configs {
+class Profile;
+}
+
 static const QMap<QString, QString> CountryMap = {
     { "Afghanistan", "AF" },
     { "Aland Islands", "AX" },
@@ -253,3 +257,7 @@ static const QMap<QString, QString> CountryMap = {
 QString CountryNameToCode(const QString& countryName);
 
 QString CountryCodeToFlag(const QString& countryCode);
+
+QString countryCodeFromFlag(const QString& text);
+
+QString effectiveCountryCode(const Configs::Profile& profile);
